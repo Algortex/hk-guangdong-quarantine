@@ -95,7 +95,7 @@ while myChoice != "7":
         smtpport2 = "暂 无" if smtpport == None else smtpport
         print("="*20+"信 息" + "="*20+f'''
         请 确 认 以 下 所 有 信 息 完 全 正 确 无 误 ，
-        否 则 有 可 能 无 法 购 票 / 登 车 ！
+        否 则 可 能 无 法 购 票 / 被 拒 登 车 ！
 
         金 巴 登 录 电 邮： {uname2}
         金 巴 登 录 密 码：{pwd2}
