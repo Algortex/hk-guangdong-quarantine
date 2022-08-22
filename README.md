@@ -1,8 +1,8 @@
 # 粤港两地隔离途径预约脚本 Scripts for Booking of Quarantine Methods for Travel between Guangdong Province and Hong Kong SAR
 
-由于中国大陆严格的 “联防联控” 政策，来往粤港两地的旅客计划行程变得非常困难。所以编写两个脚本。
+由于中国大陆严格的 “联防联控” 政策，来往粤港两地的旅客计划行程变得非常困难。所以编写两个脚本。这个仓库包含其设置脚本。
 
-Because of mainland China's draconian "COVID-zero" policies, travel between Guangdong Province and Hong Kong SAR has become extremely difficult. So programmed two scripts.
+Because of mainland China's draconian "COVID-zero" policies, travel between Guangdong Province and Hong Kong SAR has become extremely difficult. So programmed two scripts. This repository contains their configuration scripts.
 
 # 深圳湾健康驿站 Shenzhen Bay Quarantine Station Online Hotel Room Reservation System- https://github.com/Algortex/jkyz_yaohao
 
