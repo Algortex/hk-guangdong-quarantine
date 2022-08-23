@@ -40,6 +40,7 @@ def validate_date(date_):
         return False
 
 def validate_time(time_):
+    time = time_
     if len(time) != 8:
         return False
     else:
