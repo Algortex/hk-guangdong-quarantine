@@ -45,7 +45,7 @@ def validate_time(time_):
         return False
     else:
         try:
-            if len(time.split(":")) == 2 and (((int(time.split(":")[0]) >= 0 and int(time.split(":")[0]) < 24) and (int(time.split(":")[1]) >= 0 and int(time.split(":")[1]) < 59)) and (int(time.split(":")[2]) >= 0 and int(time.split(":")[2]) < 59)):
+            if len(time.split(":")) == 3 and (((int(time.split(":")[0]) >= 0 and int(time.split(":")[0]) < 24) and (int(time.split(":")[1]) >= 0 and int(time.split(":")[1]) < 59)) and (int(time.split(":")[2]) >= 0 and int(time.split(":")[2]) < 59)):
                 return True
         except Exception:
             return False
