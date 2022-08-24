@@ -49,12 +49,14 @@ emailreceivers = []
 smtppwd = ""
 smtphost = ""
 smtpport = None
+track = ""
 
 myChoice = None
 
 while myChoice != "7":
     clearScreen()
     print("="*20+"金 巴 抢 票 机 器 人 设 置 主 菜 单"+"="*20+'''
+    0. 从 文 件 导 入
     1. 显 示 信 息
     2. 添 加 乘 客 （ 同 行 人 ）
     3. 设 置 账 号 登 录 信 息
@@ -62,9 +64,31 @@ while myChoice != "7":
     5. 设 置 出 发 日 期
     6. 设 置 路 线
     7. 保 存 并 退 出
+    8. 输 入 轨 迹
     
     请 输 入 您 的 选 择：''', end="")
     myChoice = input()
+    if myChoice == "0":
+        clearScreen()
+        print("="*20 + "从 文 件 导 入" + "="*20)
+        try:
+            info = json.loads(open("info.json", "r").read())
+            uname = info["uname"]
+            pwd = info["pwd"]
+            date = info["date"]
+            route = info["route"]
+            passengers = info["passengers"]
+            mysendemail = info["mysendemail"]
+            emailreceivers = info["emailreceivers"]
+            smtphost = info["smtphost"]
+            smtpport = info["smtpport"]
+            smtppwd = info["smtppwd"]
+            track = info.get("track", "")
+            print("        文 件 导 入 成 功！")
+            input("按 【 回 车 】 键 返 回 ...")
+        except Exception:
+            print("        文 件 导 入 失 败！")
+            input("按 【 回 车 】 键 返 回 ...")
     if myChoice == "1":
         clearScreen()
         uname2 = "暂 无" if (not validate_email(uname)) else uname
@@ -93,6 +117,7 @@ while myChoice != "7":
         smtppwd2 = "暂 无" if smtppwd == "" else smtppwd
         smtphost2 = "暂 无" if smtphost == "" else smtphost
         smtpport2 = "暂 无" if smtpport == None else smtpport
+        track2 = "暂 无" if track == "" else track
         print("="*20+"信 息" + "="*20+f'''
         请 确 认 以 下 所 有 信 息 完 全 正 确 无 误 ，
         否 则 可 能 无 法 购 票 / 被 拒 登 车 ！
@@ -106,6 +131,7 @@ while myChoice != "7":
         SMTP 接 收 人 电 邮：{emailreceivers2}
         SMTP 密 码：{smtppwd2}
         SMTP 端 口：{smtpport2}
+        验 证 码 轨 迹：{track2}
         ''')
         input("按 【 回 车 】 键 返 回 ...")
     if myChoice == "2":
@@ -208,8 +234,13 @@ while myChoice != "7":
                 "emailreceivers": emailreceivers,
                 "smtppwd": smtppwd,
                 "smtphost": smtphost,
-                "smtpport": smtpport
+                "smtpport": smtpport,
+                "track": track
             }
         info_json = json.dumps(info, indent=2, ensure_ascii=False)
         with open("info.json", "w") as myinfofile:
             myinfofile.write(info_json)
+    if myChoice == "8":
+        clearScreen()
+        print("="*20 + "导 入 轨 迹" + "="*20)
+        track = input("        请 输 入 轨 迹 （可 从 guiji.html 获 取）:")
